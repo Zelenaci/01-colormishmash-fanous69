@@ -26,12 +26,12 @@ class Application(tk.Tk):
 
         self.lblG = tk.Label(self, text="G")
         self.lblG.pack()
-        self.scaleG = Scale(from_=0, to=255, orient=HORIZONTAL, length=600)
+        self.scaleG = Scale(from_=0, to=255, orient=HORIZONTAL, length=600, command=self.change)
         self.scaleG.pack()
 
         self.lblB = tk.Label(self, text="B")
         self.lblB.pack()
-        self.scaleB = Scale(from_=0, to=255, orient=HORIZONTAL, length=600)
+        self.scaleB = Scale(from_=0, to=255, orient=HORIZONTAL, length=600, command=self.change)
         self.scaleB.pack()
 
         self.canvasmain = Canvas(width=600, height=100, background='#000000')
@@ -42,12 +42,11 @@ class Application(tk.Tk):
 
         
     def change(self, event):
-        self.lblG.config(text='ahoj')
+        r = self.scaleR.get()
+        g = self.scaleG.get()
+        b = self.scaleB.get()
+        self.canvasmain.config(background=f'#{r:02x}{g:02x}{b:02x}')
 
-        r = scaleR.get()
-        g = scaleG.get()
-        b = scaleB.get()
-        self.canvasmain.config(background=f'#{r}{g}{b}')
 
 
     def quit(self, event=None):
