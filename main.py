@@ -43,7 +43,12 @@ class Application(tk.Tk):
         
     def change(self, event):
         self.lblG.config(text='ahoj')
-        self.canvasmain.config(background='#abcdef')
+
+        r = scaleR.get()
+        g = scaleG.get()
+        b = scaleB.get()
+        self.canvasmain.config(background=f'#{r}{g}{b}')
+
 
     def quit(self, event=None):
         super().quit()
