@@ -2,7 +2,8 @@
 
 from os.path import basename, splitext
 import tkinter as tk
-from tkinter import Label, Button, Scale, HORIZONTAL
+from tkinter import Label, Button, Scale, HORIZONTAL, Canvas
+from typing import Text
 
 # from tkinter import ttk
 
@@ -20,24 +21,29 @@ class Application(tk.Tk):
 
         self.lblR = tk.Label(self, text="R")
         self.lblR.pack()
-        self.scaleR = Scale(from_=0, to=255, orient=HORIZONTAL, length=256)
+        self.scaleR = Scale(from_=0, to=255, orient=HORIZONTAL, length=600, command=self.change)
         self.scaleR.pack()
 
         self.lblG = tk.Label(self, text="G")
         self.lblG.pack()
-        self.scaleG = Scale(from_=0, to=255, orient=HORIZONTAL, length=256)
+        self.scaleG = Scale(from_=0, to=255, orient=HORIZONTAL, length=600)
         self.scaleG.pack()
 
         self.lblB = tk.Label(self, text="B")
         self.lblB.pack()
-        self.scaleB = Scale(from_=0, to=255, orient=HORIZONTAL, length=256)
+        self.scaleB = Scale(from_=0, to=255, orient=HORIZONTAL, length=600)
         self.scaleB.pack()
+
+        self.canvasmain = Canvas(width=600, height=100, background='#000000')
+        self.canvasmain.pack()
 
         self.btn = tk.Button(self, text="Quit", command=self.quit)
         self.btn.pack()
 
         
-
+    def change(self, event):
+        self.lblG.config(text='ahoj')
+        self.canvasmain.config(background='#abcdef')
 
     def quit(self, event=None):
         super().quit()
