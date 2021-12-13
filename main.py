@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import Label, Button, Scale, HORIZONTAL, Canvas
 from typing import Text
 
-# from tkinter import ttk
+# from tkinter import tt
 
 
 
